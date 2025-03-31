@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Termin>
+
+<h2>Terminverwaltung</h2>
+<a href="/Termine/Create" class="btn btn-primary">Neuer Termin</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kunde</th>
+            <th>Datum</th>
+            <th>Aktionen</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var termin in Model)
+        {
+            <tr>
+                <td>@termin.Kunde</td>
+                <td>@termin.Datum.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>
+                    <a href="/Termine/Delete/@termin.Id" class="btn btn-danger">Löschen</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
